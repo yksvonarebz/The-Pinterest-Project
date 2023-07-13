@@ -1,0 +1,46 @@
+.pntr-header {
+  display: flex;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 80px;
+  border-bottom: 1px solid black;
+  box-sizing: border-box;
+  padding: 16px 16px;
+}
+
+.heder-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding-left: 10px;
+  margin-inline: 1%;
+  gap: 0.5%;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  background-color: $main-gray;
+  &:hover {
+    background-color: $hover-gray;
+  }
+}
+
+.search-box__inpt {
+  width: 95%;
+  height: 100%;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  background-color: $main-gray;
+  &:hover {
+    background-color: $hover-gray;
+  }
+}
