@@ -2,7 +2,7 @@
   display: flex;
   position: sticky;
   top: 0;
-	z-index: 1000;
+  z-index: 1000;
   width: 100%;
   height: 80px;
   box-sizing: border-box;
@@ -44,39 +44,4 @@
   &:hover {
     background-color: $hover-gray;
   }
-}
-
-.pntr-body {
-  width: 90%;
-  margin: 0 auto;
-}
-
-.my-masonry-grid-item {
-  margin: 10px;
-  border-radius: 20px;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-  overflow: hidden;
-	position: relative;
-  background-position: center;
-  background-size: cover;
-	&::after {
-		position: absolute;
-		content: "";
-		display: flex;
-		width: 100%;
-		height: 100%;
-		background-color: rgba(0, 0, 0, 0.1);		
-	}
-	&:hover {
-		&::after {
-			position: absolute;
-			content: "";
-			display: flex;
-			width: 100%;
-			height: 100%;
-			background-color: rgba(0, 0, 0, 0.5);		
-		}
-	}
 }

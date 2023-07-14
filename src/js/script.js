@@ -1,3 +1,5 @@
+import axios from "axios";
+
 const PERIODIC_NUM = 16;
 let el = 0;
 
@@ -40,11 +42,17 @@ function creatNode(position, url) {
   console.log(gridItem);
   gridItem.setAttribute("class", "my-masonry-grid-item");
   gridItem.style.height = HEIGHT_MAP.get(position);
-  gridItem.style[
-    "background-image"
-  ] = `url('${url}')`;
+  gridItem.style["background-image"] = `url('${url}')`;
   return gridItem;
 }
 
-let btn = document.getElementById("border-button");
-btn.addEventListener("click", addImg, false);
+
+axios
+  .get("https://64affd44c60b8f941af506ea.mockapi.io/api/images")
+  .then(function (response) {
+		for (let el of response.data) {
+			addImg(el.image);
+		}
+  });
+
+
