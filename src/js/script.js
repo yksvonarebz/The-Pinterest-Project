@@ -23,14 +23,17 @@ const HEIGHT_MAP = new Map([
   [16, "320px"],
 ]);
 
-function addImg(url) {
+function addImg(url, desc) {
   console.log("dfsdfsd");
   const listEl = document.getElementById("my-masonry-grid");
   const listLen = listEl.children.length;
   const posNum = el % PERIODIC_NUM;
   const clmnPosNum = (el % listLen) + 1;
   el++;
+  let splitUrl = url.split("/");
   const node = creatNode(posNum, url);
+  node.setAttribute("hashtag", splitUrl[splitUrl.length-1]);
+  node.setAttribute("description", desc);
   const clmn = listEl.getElementsByClassName(
     `masonry-grid-column-${clmnPosNum}`
   )[0];
@@ -48,10 +51,10 @@ function creatNode(position, url) {
 
 
 axios
-  .get("https://64affd44c60b8f941af506ea.mockapi.io/api/images")
+  .get("https://64b12164062767bc4825bd2e.mockapi.io/pinterest")
   .then(function (response) {
 		for (let el of response.data) {
-			addImg(el.image);
+			addImg(el.img, el.desc);
 		}
   });
 
