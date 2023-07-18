@@ -1,34 +1,14 @@
 import axios from "axios";
+import { HEIGHT_MAP, PERIODIC_NUM } from "./constants";
 
-const PERIODIC_NUM = 16;
-let el = 0;
-
-const HEIGHT_MAP = new Map([
-  [0, "295px"],
-  [1, "378px"],
-  [2, "315px"],
-  [3, "420px"],
-  [4, "429px"],
-  [5, "315px"],
-  [6, "229px"],
-  [7, "420px"],
-  [8, "472px"],
-  [9, "347px"],
-  [10, "268px"],
-  [11, "345px"],
-  [12, "418px"],
-  [13, "354px"],
-  [14, "313px"],
-  [15, "420px"],
-  [16, "320px"],
-]);
+let numOfImages = 0;
 
 function addImg(url, desc) {
   const listEl = document.getElementById("my-masonry-grid");
   const listLen = listEl.children.length;
-  const posNum = el % PERIODIC_NUM;
-  const clmnPosNum = (el % listLen) + 1;
-  el++;
+  const posNum = numOfImages % PERIODIC_NUM;
+  const clmnPosNum = (numOfImages % listLen) + 1;
+  numOfImages++;
   let splitUrl = url.split("/");
   const node = creatNode(posNum, url);
   node.setAttribute("id", "el-id-" + el);
@@ -51,14 +31,31 @@ function creatNode(position, url) {
   return gridItem;
 }
 
+/**
+ *
+ * @returns images data :
+ * 	id: image id
+ *  image: url to an image
+ *  userName: auther nickname
+ *  avatar: url to the user avatar
+ * @example :
+ * {
+    "image": "https://loremflickr.com/640/480/business",
+    "userName": "Rowena_Cronin",
+    "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/256.jpg",
+    "id": "1"
+  }
+ */
+function getImages() {
+  return axios
+    .get("https://64affd44c60b8f941af506ea.mockapi.io/api/images")
+    .then((res) => res.data);
+}
 
-axios
-  .get("https://64b12164062767bc4825bd2e.mockapi.io/pinterest")
-  .then(function (response) {
-		for (let el of response.data) {
-			addImg(el.img, el.desc);
-		}
-  });
+async function main() {
+  let images = await getImages();
+  for (let el of images) addImg(el.image, el.description);
+}
 
 
     
@@ -68,4 +65,4 @@ axios
   // hoverBoxDescription.innerText=el.desc 
   // hoverBox.append(hoverBoxDescription);
 
-
+  main();
