@@ -3,7 +3,6 @@ import { HEIGHT_MAP, PERIODIC_NUM } from "./constants";
 
 let numOfImages = 0;
 
-
 function addImg(url, desc) {
   const listEl = document.getElementById("my-masonry-grid");
   const listLen = listEl.children.length;
@@ -12,7 +11,7 @@ function addImg(url, desc) {
   numOfImages++;
   let splitUrl = url.split("/");
   const node = creatNode(posNum, url);
-  node.setAttribute("hashtag", splitUrl[splitUrl.length-1]);
+  node.setAttribute("hashtag", splitUrl[splitUrl.length - 1]);
   node.setAttribute("description", desc);
   const clmn = listEl.getElementsByClassName(
     `masonry-grid-column-${clmnPosNum}`
@@ -49,12 +48,9 @@ function getImages() {
     .then((res) => res.data);
 }
 
-
 async function main() {
   let images = await getImages();
   for (let el of images) addImg(el.image, el.description);
 }
-
-
 
 main();
