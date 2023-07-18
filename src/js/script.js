@@ -11,7 +11,7 @@ function addImg(url, desc) {
   numOfImages++;
   let splitUrl = url.split("/");
   const node = creatNode(posNum, url);
-  node.setAttribute("id", "el-id-" + el);
+  node.setAttribute("id", "el-id-" + numOfImages);
   node.addEventListener("mouseover", function() {
     node.style.display = "flex";
 })
