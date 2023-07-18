@@ -59,3 +59,18 @@ axios
   });
 
 
+  // Контейнер появляющийся при наведение
+  const hoverBox=document.createElement('div'); 
+  hoverBox.classList.add("hoverBox"); 
+  // masonry-grid-column.append(hoverBox); 
+  const hoverImg = document.querySelector('.my-masonry-grid-item'); 
+    hoverImg.addEventListener("mouseover", function(){
+        gridItem.classList.add("hoverBox")
+    })    
+
+  // Контейнер описания
+  const hoverBoxDescription=document.createElement('div'); 
+  hoverBoxDescription.innerText=el.desc 
+  hoverBox.append(hoverBoxDescription);
+
+
