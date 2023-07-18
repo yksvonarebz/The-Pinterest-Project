@@ -50,7 +50,6 @@ $.fn.masonryGrid = function(options) {
                 // Add ident to element and put it in a column
                 $(this).attr('id', 'masonry_grid_item_' + itemCount)
                     .appendTo(currentGrid.find('.masonry-grid-column-' + currentColumn));
-
                 // Increase current column and item count
                 currentColumn++;
                 itemCount++;

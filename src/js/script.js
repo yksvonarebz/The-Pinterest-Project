@@ -24,7 +24,6 @@ const HEIGHT_MAP = new Map([
 ]);
 
 function addImg(url, desc) {
-  console.log("dfsdfsd");
   const listEl = document.getElementById("my-masonry-grid");
   const listLen = listEl.children.length;
   const posNum = el % PERIODIC_NUM;
@@ -32,6 +31,10 @@ function addImg(url, desc) {
   el++;
   let splitUrl = url.split("/");
   const node = creatNode(posNum, url);
+  node.setAttribute("id", "el-id-" + el);
+  node.addEventListener("mouseover", function() {
+    node.style.display = "flex";
+})
   node.setAttribute("hashtag", splitUrl[splitUrl.length-1]);
   node.setAttribute("description", desc);
   const clmn = listEl.getElementsByClassName(
@@ -42,7 +45,6 @@ function addImg(url, desc) {
 
 function creatNode(position, url) {
   let gridItem = document.createElement("div");
-  console.log(gridItem);
   gridItem.setAttribute("class", "my-masonry-grid-item");
   gridItem.style.height = HEIGHT_MAP.get(position);
   gridItem.style["background-image"] = `url('${url}')`;
@@ -59,18 +61,11 @@ axios
   });
 
 
-  // Контейнер появляющийся при наведение
-  const hoverBox=document.createElement('div'); 
-  hoverBox.classList.add("hoverBox"); 
-  // masonry-grid-column.append(hoverBox); 
-  const hoverImg = document.querySelector('.my-masonry-grid-item'); 
-    hoverImg.addEventListener("mouseover", function(){
-        gridItem.classList.add("hoverBox")
-    })    
+    
 
   // Контейнер описания
-  const hoverBoxDescription=document.createElement('div'); 
-  hoverBoxDescription.innerText=el.desc 
-  hoverBox.append(hoverBoxDescription);
+  // const hoverBoxDescription=document.createElement('div'); 
+  // hoverBoxDescription.innerText=el.desc 
+  // hoverBox.append(hoverBoxDescription);
 
 
