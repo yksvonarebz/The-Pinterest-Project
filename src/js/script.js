@@ -53,4 +53,24 @@ async function main() {
   for (let el of images) addImg(el.image, el.description);
 }
 
+// Search
+
+document.querySelector("#search-machine").oninput = function() {
+  let val = this.value.trim();
+  let searchMachineItems = document.querySelectorAll(".my-masonry-grid-item");
+  if (val != "") {
+    searchMachineItems.forEach(function(elem) {
+      if (elem.innerText.search(val) == -1) {
+        elem.classList.add("to-hide");
+      } else {
+        elem.classList.remove("to-hide");
+      }
+    });
+  } else {
+    searchMachineItems.forEach(function(elem) {
+      elem.classList.remove("to-hide");
+    });
+  }
+}
+
 main();
