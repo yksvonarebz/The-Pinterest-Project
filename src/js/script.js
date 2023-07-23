@@ -13,13 +13,20 @@ function addImg(url, desc) {
   const node = creatNode(posNum, url);
   node.setAttribute("id", "el-id-" + numOfImages);
   node.addEventListener("mouseover", function() {
-    node.style.display = "flex";
+    node.classList.add(hoverConatainer)
+    // node.style.display.none
+    // node.style.display.setAttribute("hoverConatainer")
 })
+// Функция когда мышка уходит с картинки
+node.addEventListener("mouseleave", function() {
+  hoverConatainer.style.display.none
+})
+
+
   node.setAttribute("hashtag", splitUrl[splitUrl.length-1]);
   node.setAttribute("description", desc);
   const clmn = listEl.getElementsByClassName(
-    `masonry-grid-column-${clmnPosNum}`
-  )[0];
+    `masonry-grid-column-${clmnPosNum}`)[0];
   clmn.append(node);
 }
 
@@ -56,13 +63,9 @@ async function main() {
   let images = await getImages();
   for (let el of images) addImg(el.image, el.description);
 }
-
-
-    
-
-  // Контейнер описания
-  // const hoverBoxDescription=document.createElement('div'); 
-  // hoverBoxDescription.innerText=el.desc 
-  // hoverBox.append(hoverBoxDescription);
-
+  // Нахождение контейера и элементов  появляющегося при наведение 
+  const hoverConatainer = document.getElementById("containerHoverBox");
+  const descriptionContainer= document.getElementById("description");
+  const avatarContainer= document.getElementById("avatar");
+  descriptionContainer.innerText=el.desc 
   main();

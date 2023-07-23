@@ -32,11 +32,24 @@
     }
   }
 }
-.hoverBox{
-  background-color: brown;
+
+.containerHoverBox{
+  width: 100%;
+  height: 100%;
+  display: none;
 }
-.hoverBoxDescription{
-  font-size: 15px;
+.containerHoverBox:hover{
+  display: flex;
+}
+.description{
   color: white;
-  width: 90%;
+  font-size: 15px;
+}
+.button{
+  display: flex;
+  border-radius: 50%;
+  background-color: gray;
+}
+.avatar{
+  border-radius: 50%;
 }
