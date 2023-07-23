@@ -55,22 +55,22 @@ async function main() {
 
 // Search
 
-document.querySelector("#search-machine").oninput = function() {
+document.querySelector("#search-machine").oninput = function () {
   let val = this.value.trim();
   let searchMachineItems = document.querySelectorAll(".my-masonry-grid-item");
   if (val != "") {
-    searchMachineItems.forEach(function(elem) {
-      if (elem.innerText.search(val) == -1) {
-        elem.classList.add("to-hide");
+    searchMachineItems.forEach(function (elem) {
+      if (elem.attributes["hashtag"].value.indexOf(val) < 0) {
+        elem.style.display ="none";
       } else {
-        elem.classList.remove("to-hide");
+        elem.style.display ="flex";
       }
     });
   } else {
-    searchMachineItems.forEach(function(elem) {
-      elem.classList.remove("to-hide");
+    searchMachineItems.forEach(function (elem) {
+      elem.style.display ="flex";
     });
   }
-}
+};
 
 main();
