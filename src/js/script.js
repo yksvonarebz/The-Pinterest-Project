@@ -38,14 +38,34 @@ function createHoverEl(description, avatar, id, userName) {
   hoverEl.setAttribute("class", "hover-el");
   let userInfo = document.createElement("div");
   userInfo.setAttribute("class", "hover-el__user-nfo");
+
+
+  // создание кнопки
+  let hoverButton=document.createElement("button");
+  hoverButton.setAttribute("class", "button");
+  hoverButton.innerText="..."
+  // создание контейнеров внутри кнопки
+// let containerWithAddBoards=document.createElement("div");
+// containerWithAddBoards.setAttribute("class", "containerWithAddBoards");
+document.getElementsByClassName("containerWithAddBoards")
+hoverButton.addEventListener("click", function(){ 
+  console.log("test")
+  containerWithAddBoards.style.display = "flex";
+})
+
   let userAvatar = document.createElement("img");
   userAvatar.setAttribute("src", avatar);
   userInfo.append(userAvatar);
   userInfo.append(userName);
   hoverEl.append(userInfo);
   hoverEl.append(description);
+  hoverEl.append(hoverButton);
   return hoverEl;
 }
+
+
+
+
 
 function creatNode(position, url) {
   let gridItem = document.createElement("div");
