@@ -3,21 +3,69 @@ import { HEIGHT_MAP, PERIODIC_NUM } from "./constants";
 
 let numOfImages = 0;
 
-function addImg(url, desc) {
+function addImg(el) {
   const listEl = document.getElementById("my-masonry-grid");
   const listLen = listEl.children.length;
   const posNum = numOfImages % PERIODIC_NUM;
   const clmnPosNum = (numOfImages % listLen) + 1;
   numOfImages++;
-  let splitUrl = url.split("/");
-  const node = creatNode(posNum, url);
+  let splitUrl = el.image.split("/");
+  const node = creatNode(posNum, el.image);
+  const id = "el-id-" + numOfImages;
+  node.setAttribute("id", id);
+  let hovEl = createHoverEl(el.description, el.avatar, id, el.userName);
+  node.append(hovEl);
+  // действие на наведение курсора
+  node.addEventListener("mouseover", function () {
+    hovEl.style.display = "flex";
+  });
+  // действие на отсутствие курсора мышки
+  node.addEventListener("mouseout", function () {
+    hovEl.style.display = "none";
+  });
+
   node.setAttribute("hashtag", splitUrl[splitUrl.length - 1]);
-  node.setAttribute("description", desc);
+  node.setAttribute("description", el.description);
   const clmn = listEl.getElementsByClassName(
     `masonry-grid-column-${clmnPosNum}`
   )[0];
   clmn.append(node);
 }
+
+// Создание всплывающего элемента картинки
+function createHoverEl(description, avatar, id, userName) {
+  let hoverEl = document.createElement("div");
+  hoverEl.setAttribute("class", "hover-el");
+  let userInfo = document.createElement("div");
+  userInfo.setAttribute("class", "hover-el__user-nfo");
+
+
+  // создание кнопки
+  let hoverButton=document.createElement("button");
+  hoverButton.setAttribute("class", "button");
+  hoverButton.innerText="..."
+  // создание контейнеров внутри кнопки
+// let containerWithAddBoards=document.createElement("div");
+// containerWithAddBoards.setAttribute("class", "containerWithAddBoards");
+document.getElementsByClassName("containerWithAddBoards")
+hoverButton.addEventListener("click", function(){ 
+  console.log("test")
+  containerWithAddBoards.style.display = "flex";
+})
+
+  let userAvatar = document.createElement("img");
+  userAvatar.setAttribute("src", avatar);
+  userInfo.append(userAvatar);
+  userInfo.append(userName);
+  hoverEl.append(userInfo);
+  hoverEl.append(description);
+  hoverEl.append(hoverButton);
+  return hoverEl;
+}
+
+
+
+
 
 function creatNode(position, url) {
   let gridItem = document.createElement("div");
@@ -50,7 +98,7 @@ function getImages() {
 
 async function main() {
   let images = await getImages();
-  for (let el of images) addImg(el.image, el.description);
+  for (let el of images) addImg(el);
 }
 
 // Search

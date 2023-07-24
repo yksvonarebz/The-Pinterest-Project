@@ -47,17 +47,16 @@ $.fn.masonryGrid = function (options) {
         // Reset current column
         if (currentColumn > settings.columns) currentColumn = 1;
 
-        // Add ident to element and put it in a column
-        $(this)
-          .attr("id", "masonry_grid_item_" + itemCount)
-          .appendTo(currentGrid.find(".masonry-grid-column-" + currentColumn));
+                // Add ident to element and put it in a column
+                $(this).attr('id', 'masonry_grid_item_' + itemCount)
+                    .appendTo(currentGrid.find('.masonry-grid-column-' + currentColumn));
 
-        // Increase current column and item count
-        currentColumn++;
-        itemCount++;
-      });
-    });
-  }
+                // Increase current column and item count
+                currentColumn++;
+                itemCount++;
+            });
+        });
+    }
 
 	// recalc colums count
   function destroyMasonry() {

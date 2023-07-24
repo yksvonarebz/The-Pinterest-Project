@@ -16,6 +16,10 @@
     <script type="module" src="./js/script.js" defer></script>
   </head>
   <body>
+    <div class="containerWithAddBoards">
+      <button class="add">Add To Borders</button>
+      <button class="report">Report</button>
+    </div>
     <div class="fluid-container">
       <header class="pntr-header">
         <div class="heder-flex">
@@ -50,7 +54,13 @@
         </div>
       </header>
       <main class="pntr-body">
-        <div class="my-masonry-grid" id="my-masonry-grid"></div>
+        <div class="my-masonry-grid" id="my-masonry-grid">
+          <div class="containerHoverBox">
+                <div class="description"></div>
+                <div class="button">...</div>
+                <div class="avatar"></div>
+          </div>
+        </div>
       </main>
       <footer class="pntr-footer"></footer>
     </div>
