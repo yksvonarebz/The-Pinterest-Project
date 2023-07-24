@@ -100,4 +100,25 @@ async function main() {
   let images = await getImages();
   for (let el of images) addImg(el);
 }
+
+// Search
+
+document.querySelector("#search-machine").oninput = function () {
+  let val = this.value.trim();
+  let searchMachineItems = document.querySelectorAll(".my-masonry-grid-item");
+  if (val != "") {
+    searchMachineItems.forEach(function (elem) {
+      if (elem.attributes["hashtag"].value.indexOf(val) < 0) {
+        elem.style.display ="none";
+      } else {
+        elem.style.display ="flex";
+      }
+    });
+  } else {
+    searchMachineItems.forEach(function (elem) {
+      elem.style.display ="flex";
+    });
+  }
+};
+
 main();
