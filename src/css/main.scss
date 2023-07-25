@@ -57,50 +57,61 @@
   font-size: 44px;
   display: flex;
 }
-.avatar{
-  width: 40px;
-  height: 40px;
-  background-color: aqua;
-  border-radius: 50%;
-}
+// .avatar{
+//   width: 40px;
+//   height: 40px;
+//   background-color: aqua;
+//   border-radius: 50%;
+// }
 .containerWithAddBoards{
-  position: relative;
-  background-color: #80808033;
-  width: 700px;
-  height: 300px;
-  /* display: none; */
-  margin: 0 auto;
-  display: grid;
+  justify-content: space-between;
+  display: none; 
   border-radius: 20px;
+  height: 29px;
+  margin-bottom: 10px;
 }
 .add{
+  display: flex;
   color: #198754;
   border-color:#198754;
-  border-radius: 10px;
+  border-radius: 9px;
   border: 0px;
   margin-top: 10px;
   margin: 0 auto;
-  width: 300px;
-  height: 100px;
   background-color: white;
-  font-size: 30px;
+  font-size: 15px;
 }
 .report{
+  display: flex;
   color: #198754;
   border-color:#198754;
   border: 0px;
-  border-radius: 10px;
+  border-radius: 9px;
   margin: 0 auto;
-  width: 300px;
-  height: 100px;
   background-color: white;
-  font-size: 30px;
+  font-size: 15px;
+}
+.cross{
+  display: flex;
+  color: #198754;
+  border-color:#198754;
+  border: 0px;
+  border-radius: 7px;
+  margin: 0 auto;
+  background-color: white;
+  font-size: 14px;
+  height: 30px;
+  align-items: center;
 }
 .add:hover{
   background-color: #198754;
   color: white;
 }
 .report:hover{
+  background-color: #198754;
+  color: white;
+}
+.cross:hover{
   background-color: #198754;
   color: white;
 }
