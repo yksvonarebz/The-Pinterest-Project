@@ -38,20 +38,34 @@ function createHoverEl(description, avatar, id, userName) {
   hoverEl.setAttribute("class", "hover-el");
   let userInfo = document.createElement("div");
   userInfo.setAttribute("class", "hover-el__user-nfo");
-
-
   // создание кнопки
   let hoverButton=document.createElement("button");
   hoverButton.setAttribute("class", "button");
   hoverButton.innerText="..."
-  // создание контейнеров внутри кнопки
-// let containerWithAddBoards=document.createElement("div");
-// containerWithAddBoards.setAttribute("class", "containerWithAddBoards");
-document.getElementsByClassName("containerWithAddBoards")
-hoverButton.addEventListener("click", function(){ 
-  console.log("test")
-  containerWithAddBoards.style.display = "flex";
-})
+  
+  // создание контейнеров внутри кнопки)
+  let container=document.createElement("div")
+  container.setAttribute("class", "containerWithAddBoards");
+
+  let buttonReport=document.createElement("button");
+  buttonReport.setAttribute("class", "report");
+  buttonReport.innerText="Report"
+
+  let buttonAdd=document.createElement("button");
+  buttonAdd.setAttribute("class", "report");
+  buttonAdd.innerText="Add To Borders"
+
+  let closecontainer=document.createElement("button");
+  closecontainer.setAttribute("class", "cross");
+  closecontainer.innerText="X"
+
+  closecontainer.addEventListener("click", function(){ 
+    container.style.display = "none";
+  })
+  
+  hoverButton.addEventListener("click", function(){ 
+    container.style.display = "flex";
+  })
 
   let userAvatar = document.createElement("img");
   userAvatar.setAttribute("src", avatar);
@@ -60,6 +74,10 @@ hoverButton.addEventListener("click", function(){
   hoverEl.append(userInfo);
   hoverEl.append(description);
   hoverEl.append(hoverButton);
+  hoverEl.append(container);
+  container.append(buttonReport);
+  container.append(buttonAdd);
+  container.append(closecontainer);
   return hoverEl;
 }
 
