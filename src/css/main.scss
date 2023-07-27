@@ -63,54 +63,128 @@
   display: flex;
 }
 
-// .avatar{
-//   width: 40px;
-//   height: 40px;
-//   background-color: aqua;
-//   border-radius: 50%;
-// }
 .containerWithAddBoards {
   justify-content: space-between;
   display: none;
   border-radius: 20px;
-  height: 29px;
   margin-bottom: 10px;
 }
 
 .add {
   display: flex;
+  font-weight: 400;
+  font-family: 'Blinker', sans-serif;
   color: #198754;
   border-color: #198754;
   border-radius: 9px;
   border: 0px;
   margin-top: 10px;
   margin: 0 auto;
-  background-color: white;
-  font-size: 15px;
+  background-color: rgba(239, 239, 239);
+  font-size: small;
+  align-items: center;
 }
-
-.report {
+@media (max-width:1150px) {
+  .add{
+    font-size: 12px;
+    padding: 4px;
+  }
+}
+@media (max-width: 840px) {
+  .add{
+    font-size: 11px;
+    padding: 4px;
+  }
+}
+@media (max-width: 650px) {
+  .add{
+    padding: 4px;
+    font-size: 10px;
+  }
+}
+@media (max-width: 550px) {
+  .add{
+    padding: 4px;
+    font-size: 10px;
+  }
+}
+@media (max-width: 512px) {
+  .add{
+    font-size: 12px;
+  }
+}
+@media (max-width: 413px) {
+  .add{
+    font-size: 20px;
+  }
+}
+  
+.report{
+  font-weight: 400;
+  font-family: 'Blinker', sans-serif;
   display: flex;
   color: #198754;
   border-color: #198754;
   border: 0px;
   border-radius: 9px;
   margin: 0 auto;
-  background-color: white;
-  font-size: 15px;
+  background-color: rgba(239, 239, 239);
+  font-size: small;
+  align-items: center;
+}
+@media (max-width:1150px) {
+  .report{
+    font-size: 12px;
+    padding: 4px;
+  }
+}
+@media (max-width: 840px) {
+  .report{
+    font-size: 11px;
+    padding: 4px;
+  }
+}
+@media (max-width: 650px) {
+  .report{
+    font-size: 10px;
+    padding: 4px;
+  }
+}
+@media (max-width: 550px) {
+  .report{
+    padding: 4px;
+    font-size: 10px;
+  }
+}
+@media (max-width: 512px) {
+  .report{
+    font-size: 12px;
+  }
+}
+@media (max-width: 413px) {
+  .report{
+    font-size: 20px;
+  }
 }
 
 .cross {
+  font-weight: 400;
+  font-family: 'Blinker', sans-serif;
   display: flex;
   color: #198754;
   border-color: #198754;
   border: 0px;
   border-radius: 7px;
   margin: 0 auto;
-  background-color: white;
-  font-size: 14px;
-  height: 30px;
+  background-color: rgba(239, 239, 239);
+  font-size: small;
   align-items: center;
+  align-items: center;
+}
+@media (max-width: 413px) {
+  .cross{
+    font-size: 20px;
+  }
 }
 
 .add:hover {
@@ -124,7 +198,7 @@
 }
 
 .cross:hover {
-  background-color: #198754;
+  background-color: #BD081C;
   color: white;
 }
 
@@ -140,6 +214,95 @@
 }
 
 .hover-el__user-nfo {
+	img {
+		margin-right: 2%;
+		width: 50px;
+		height: 50px;
+		border: 1px double white;
+		border-radius: 25px;
+	}
+}
+.modal {
+  display: none;
+  position: fixed; 
+  z-index: 1; 
+  left: 100px;
+  top: 0;
+  width: 100%;
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+}
+.modal-content {
+  background-color: #5e1010;
+  margin: 15% auto; 
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; 
+}
+.close {
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+.modal-header {
+  padding: 2px 16px;
+  background-color: #BD081C;
+  color: white;
+}
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+  padding: 2px 16px;
+  display: flex;
+  justify-content: space-between;
+}
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+@keyframes animatetop {
+  from {top: -300px; opacity: 0}
+  to {top: 0; opacity: 1}
+}
+.title-report{
+  margin-right: 30px;
+}
+.button-send{
+  display: flex;
+  color: #198754;
+  border-color:#198754;
+  border-radius: 9px;
+  border: 0px;
+  margin-top: 10px;
+  margin: 0 auto;
+  background-color: white;
+  font-size: 15px;
+  height: 30px;
+}
+.button-send:hover{
+  background-color: #198754;
+  color: white;
+}
+.options{
+  margin-top: 20px;
+}
+.footer-text{
+  margin-left: auto;
   img {
     margin-right: 2%;
     width: 50px;
