@@ -89,27 +89,60 @@
             </ul>
           </div>
         </div>
-      </header>
-      <main class="pntr-body">
-        <div class="my-masonry-grid" id="my-masonry-grid">
-          <div class="containerHoverBox">
-                <div class="description"></div>
-                <div class="button">...</div>
-                <div class="avatar"></div>
-          </div>
+        <div class="dropdown h-100">
+          <button class="btn btn-outline-success dropdown-toggle h-100" id="toggle-button" type="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Desks
+          </button>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item" id="dropdown-item-1">
+                First desk</a>
+            </li>
+            <li>
+              <a class="dropdown-item" id="dropdown-item-2">
+                Second desk</a>
+            </li>
+            <li>
+              <a class="dropdown-item" id="dropdown-item-3">
+                Third desk</a>
+            </li>
+          </ul>
         </div>
-      </main>
-      <footer class="pntr-footer"></footer>
-    </div>
-    <script src="./js/jquery.min.js"></script>
-    <script src="./js/jquery.masonryGrid.js" type="module"></script>
-    <script src="./js/bootstrap.bundle.min.js" type="module"></script>
-    <script>
-      $(function () {
-        $(".my-masonry-grid").masonryGrid({
-          columns: 6,
-        });
+      </div>
+    </header>
+    <main class="pntr-body">
+      <div class="my-masonry-grid" id="my-masonry-grid">
+        <div class="containerHoverBox">
+          <div class="description"></div>
+          <div class="button">...</div>
+          <div class="avatar"></div>
+        </div>
+      </div>
+      <div class="desk-masonry-grid desk-masonry-grid-first" id="desk-masonry-grid-first">
+      </div>
+      <div class="desk-masonry-grid desk-masonry-grid-second" id="desk-masonry-grid-second"></div>
+      <div class="desk-masonry-grid desk-masonry-grid-third" id="desk-masonry-grid-third"></div>
+    </main>
+    <footer class="pntr-footer"></footer>
+  </div>
+  <script src="./js/jquery.min.js"></script>
+  <script src="./js/jquery.masonryGrid.js" type="module"></script>
+  <script src="./js/bootstrap.bundle.min.js" type="module"></script>
+  <script>
+    $(function () {
+      $(".my-masonry-grid, .desk-masonry-grid-first, .desk-masonry-grid-second, .desk-masonry-grid-third").masonryGrid({
+        columns: 6,
       });
-    </script>
-  </body>
+    });
+  </script>
+  <script>
+    $(function () {
+      $(".desk-masonry-grid").masonryGrid({
+        columns: 6,
+      });
+    });
+  </script>
+</body>
+
 </html>

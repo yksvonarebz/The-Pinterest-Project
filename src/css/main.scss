@@ -13,7 +13,8 @@
   position: relative;
   background-position: center;
   background-size: cover;
-	align-items: flex-end;
+  align-items: flex-end;
+
   &::after {
     position: absolute;
     content: "";
@@ -22,6 +23,7 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.1);
   }
+
   &:hover {
     &::after {
       position: absolute;
@@ -34,19 +36,22 @@
   }
 }
 
-.containerHoverBox{
+.containerHoverBox {
   width: 100%;
   height: 100%;
   display: none;
 }
-.containerHoverBox:hover{
+
+.containerHoverBox:hover {
   display: flex;
 }
-.description{
+
+.description {
   color: white;
   font-size: 15px;
 }
-.button{
+
+.button {
   border: 0px;
   background-color: rgba(128, 128, 128, 0.0);
   color: white;
@@ -57,18 +62,20 @@
   font-size: 44px;
   display: flex;
 }
-.containerWithAddBoards{
+
+.containerWithAddBoards {
   justify-content: space-between;
-  display: none; 
+  display: none;
   border-radius: 20px;
   margin-bottom: 10px;
 }
-.add{
+
+.add {
   display: flex;
   font-weight: 400;
   font-family: 'Blinker', sans-serif;
   color: #198754;
-  border-color:#198754;
+  border-color: #198754;
   border-radius: 9px;
   border: 0px;
   margin-top: 10px;
@@ -111,12 +118,13 @@
     font-size: 20px;
   }
 }
+  
 .report{
   font-weight: 400;
   font-family: 'Blinker', sans-serif;
   display: flex;
   color: #198754;
-  border-color:#198754;
+  border-color: #198754;
   border: 0px;
   border-radius: 9px;
   margin: 0 auto;
@@ -158,12 +166,13 @@
     font-size: 20px;
   }
 }
-.cross{
+
+.cross {
   font-weight: 400;
   font-family: 'Blinker', sans-serif;
   display: flex;
   color: #198754;
-  border-color:#198754;
+  border-color: #198754;
   border: 0px;
   border-radius: 7px;
   margin: 0 auto;
@@ -177,27 +186,31 @@
     font-size: 20px;
   }
 }
-.add:hover{
+
+.add:hover {
   background-color: #198754;
   color: white;
 }
-.report:hover{
+
+.report:hover {
   background-color: #198754;
   color: white;
 }
-.cross:hover{
+
+.cross:hover {
   background-color: #BD081C;
   color: white;
 }
+
 .hover-el {
-	display: none;
-	position: relative;
-	z-index: 1;
-	color: white;
-	box-sizing: border-box;
-	flex-direction: column;
-	padding-inline: 3%;
-	padding-bottom: 2%;
+  display: none;
+  position: relative;
+  z-index: 1;
+  color: white;
+  box-sizing: border-box;
+  flex-direction: column;
+  padding-inline: 3%;
+  padding-bottom: 2%;
 }
 
 .hover-el__user-nfo {
@@ -290,4 +303,51 @@
 }
 .footer-text{
   margin-left: auto;
+  img {
+    margin-right: 2%;
+    width: 50px;
+    height: 50px;
+    border: 1px double white;
+    border-radius: 25px;
+  }
+}
+
+.add-to-desk-win {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2%;
+  z-index: 3;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+}
+
+.btn-cstm {
+  width: 65% !important;
+
+  &:hover {
+    background-color: #198754 !important;
+    border-color: #198754 !important;
+    color: white !important;
+  }
+}
+
+
+@keyframes progress {
+  from {
+    background: url('../imgs/loader-clr.png') white;
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: 0%;
+  }
+
+  to {
+    background: url('../imgs/loader-clr.png') white;
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: 100%;
+  }
 }
