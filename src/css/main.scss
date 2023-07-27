@@ -77,6 +77,40 @@
   font-size: small;
   align-items: center;
 }
+@media (max-width:1150px) {
+  .add{
+    font-size: 12px;
+    padding: 4px;
+  }
+}
+@media (max-width: 840px) {
+  .add{
+    font-size: 11px;
+    padding: 4px;
+  }
+}
+@media (max-width: 650px) {
+  .add{
+    padding: 4px;
+    font-size: 10px;
+  }
+}
+@media (max-width: 550px) {
+  .add{
+    padding: 4px;
+    font-size: 10px;
+  }
+}
+@media (max-width: 512px) {
+  .add{
+    font-size: 12px;
+  }
+}
+@media (max-width: 413px) {
+  .add{
+    font-size: 20px;
+  }
+}
 .report{
   font-weight: 400;
   font-family: 'Blinker', sans-serif;
@@ -90,7 +124,40 @@
   font-size: small;
   align-items: center;
 }
-
+@media (max-width:1150px) {
+  .report{
+    font-size: 12px;
+    padding: 4px;
+  }
+}
+@media (max-width: 840px) {
+  .report{
+    font-size: 11px;
+    padding: 4px;
+  }
+}
+@media (max-width: 650px) {
+  .report{
+    font-size: 10px;
+    padding: 4px;
+  }
+}
+@media (max-width: 550px) {
+  .report{
+    padding: 4px;
+    font-size: 10px;
+  }
+}
+@media (max-width: 512px) {
+  .report{
+    font-size: 12px;
+  }
+}
+@media (max-width: 413px) {
+  .report{
+    font-size: 20px;
+  }
+}
 .cross{
   font-weight: 400;
   font-family: 'Blinker', sans-serif;
@@ -104,6 +171,11 @@
   font-size: small;
   align-items: center;
   align-items: center;
+}
+@media (max-width: 413px) {
+  .cross{
+    font-size: 20px;
+  }
 }
 .add:hover{
   background-color: #198754;
