@@ -1,78 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/style.scss" />
-    <link rel="stylesheet" href="./css/bootstrap.css" />
-    <link rel="icon" type="image/x-icon" href="./imgs/pinterest.ico" />
-    <title>Pinterest</title>
-    <script
-      src="https://kit.fontawesome.com/2f53ee919a.js"
-      crossorigin="anonymous"
-    ></script>
 
-    <script type="module" src="./js/script.js" defer></script>
-  </head>
-  <body>
-    <!-- <div class="containerWithAddBoards">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./css/style.scss" />
+  <link rel="stylesheet" href="./css/bootstrap.css" />
+  <link rel="icon" type="image/x-icon" href="./imgs/pinterest.ico" />
+  <title>Pinterest</title>
+  <script src="https://kit.fontawesome.com/2f53ee919a.js" crossorigin="anonymous"></script>
+
+  <script type="module" src="./js/script.js" defer></script>
+</head>
+
+<body>
+  <!-- <div class="containerWithAddBoards">
       <button class="add">Add To Borders</button>
       <button class="report">Report</button>
     </div> -->
-    <div class="fluid-container">
-      <header class="pntr-header">
-        <div class="heder-flex">
-          <div class="logo-box">
-            <i class="fa-brands fa-pinterest fa-2xl" style="color: #b51a00"></i>
-          </div>
-          <div class="search-box">
-            <i
-              class="fa-solid fa-magnifying-glass fa-lh"
-              style="color: #444444"
-            ></i>
-            <input id="search-machine" class="search-box__inpt" type="text" placeholder="Search" />
-          </div>
-          <div class="dropdown h-100">
-            <button
-              class="btn btn-outline-success dropdown-toggle h-100"
-              type="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Borders
-            </button>
-            <ul class="dropdown-menu">
-              <li>
-                <a class="dropdown-item" href="#">
-                  <i class="fa-solid fa-circle-plus" style="color: #000000"></i>
-                  Create border</a
-                >
-              </li>
-            </ul>
-          </div>
+  <div class="fluid-container">
+    <header class="pntr-header">
+      <div class="heder-flex">
+        <div class="logo-box">
+          <i class="fa-brands fa-pinterest fa-2xl" style="color: #b51a00"></i>
         </div>
-      </header>
-      <main class="pntr-body">
-        <div class="my-masonry-grid" id="my-masonry-grid">
-          <div class="containerHoverBox">
-                <div class="description"></div>
-                <div class="button">...</div>
-                <div class="avatar"></div>
-          </div>
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass fa-lh" style="color: #444444"></i>
+          <input id="search-machine" class="search-box__inpt" type="text" placeholder="Search" />
         </div>
-      </main>
-      <footer class="pntr-footer"></footer>
-    </div>
-    <script src="./js/jquery.min.js"></script>
-    <script src="./js/jquery.masonryGrid.js" type="module"></script>
-    <script src="./js/bootstrap.bundle.min.js" type="module"></script>
-    <script>
-      $(function () {
-        $(".my-masonry-grid").masonryGrid({
-          columns: 6,
-        });
+        <div class="dropdown h-100">
+          <button class="btn btn-outline-success dropdown-toggle h-100" id="toggle-button" type="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Desks
+          </button>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item" id="dropdown-item-1">
+                First desk</a>
+            </li>
+            <li>
+              <a class="dropdown-item" id="dropdown-item-2">
+                Second desk</a>
+            </li>
+            <li>
+              <a class="dropdown-item" id="dropdown-item-3">
+                Third desk</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <main class="pntr-body">
+      <div class="my-masonry-grid" id="my-masonry-grid">
+        <div class="containerHoverBox">
+          <div class="description"></div>
+          <div class="button">...</div>
+          <div class="avatar"></div>
+        </div>
+      </div>
+      <div class="desk-masonry-grid desk-masonry-grid-first" id="desk-masonry-grid-first">
+      </div>
+      <div class="desk-masonry-grid desk-masonry-grid-second" id="desk-masonry-grid-second"></div>
+      <div class="desk-masonry-grid desk-masonry-grid-third" id="desk-masonry-grid-third"></div>
+    </main>
+    <footer class="pntr-footer"></footer>
+  </div>
+  <script src="./js/jquery.min.js"></script>
+  <script src="./js/jquery.masonryGrid.js" type="module"></script>
+  <script src="./js/bootstrap.bundle.min.js" type="module"></script>
+  <script>
+    $(function () {
+      $(".my-masonry-grid, .desk-masonry-grid-first, .desk-masonry-grid-second, .desk-masonry-grid-third").masonryGrid({
+        columns: 6,
       });
-    </script>
-  </body>
+    });
+  </script>
+  <script>
+    $(function () {
+      $(".desk-masonry-grid").masonryGrid({
+        columns: 6,
+      });
+    });
+  </script>
+</body>
+
 </html>
