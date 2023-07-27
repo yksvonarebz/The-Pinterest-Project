@@ -52,8 +52,8 @@ function createHoverEl(description, avatar, id, userName) {
   buttonReport.innerText="Report"
 
   let buttonAdd=document.createElement("button");
-  buttonAdd.setAttribute("class", "report");
-  buttonAdd.innerText="Add To Borders"
+  buttonAdd.setAttribute("class", "add");
+  buttonAdd.innerText="Add To Border"
 
   let closecontainer=document.createElement("button");
   closecontainer.setAttribute("class", "cross");
@@ -66,6 +66,26 @@ function createHoverEl(description, avatar, id, userName) {
   hoverButton.addEventListener("click", function(){ 
     container.style.display = "flex";
   })
+  
+// Получить модальный
+let modal = document.getElementById("myModal");
+// Получить элемент <span>, который закрывает модальный
+let span = document.getElementsByClassName("close")[0];
+// Когда пользователь нажимает на кнопку, откройте модальный
+buttonReport.onclick = function() {
+  console.log("test")
+  modal.style.display = "block";
+}
+// Когда пользователь нажимает на <span> (x), закройте модальное окно
+span.onclick = function() {
+  modal.style.display = "none";
+}
+// Когда пользователь щелкает в любом месте за пределами модального, закройте его
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
 
   let userAvatar = document.createElement("img");
   userAvatar.setAttribute("src", avatar);
@@ -80,10 +100,6 @@ function createHoverEl(description, avatar, id, userName) {
   container.append(closecontainer);
   return hoverEl;
 }
-
-
-
-
 
 function creatNode(position, url) {
   let gridItem = document.createElement("div");

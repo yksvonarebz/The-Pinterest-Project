@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./css/style.scss" />
     <link rel="stylesheet" href="./css/bootstrap.css" />
     <link rel="icon" type="image/x-icon" href="./imgs/pinterest.ico" />
+    <link href="https://fonts.googleapis.com/css2?family=Blinker:wght@200;400&display=swap" rel="stylesheet">
     <title>Pinterest</title>
     <script
       src="https://kit.fontawesome.com/2f53ee919a.js"
@@ -16,10 +17,46 @@
     <script type="module" src="./js/script.js" defer></script>
   </head>
   <body>
-    <!-- <div class="containerWithAddBoards">
-      <button class="add">Add To Borders</button>
-      <button class="report">Report</button>
-    </div> -->
+<div id="myModal" class="modal">
+<div class="modal-content">
+  <div class="modal-header">
+    <span class="close">&times;</span>
+    <h2 class="title-report">Report menu</h2>
+  </div>
+  <div class="modal-body">
+    <form action="">
+      <fieldset>
+      <legend>Choose paragraph</legend><br>
+      <input type="checkbox" class="options" name="html" value="html"/> This is spam
+      <br />
+      <input type="checkbox" class="options" name="html" value="html"/> Offence
+      <br />
+      <input type="checkbox" class="options" name="html" value="html"/> Adult material
+      <br />
+      <input type="checkbox" class="options" name="html" value="html"/> Child pornography
+      <br />
+      <input type="checkbox" class="options" name="html" value="html"/> Drug propaganda
+      <br />
+      <input type="checkbox" class="options" name="html" value="html"/> Violence
+      <br />
+      <input type="checkbox" class="options" name="html" value="html"/> Extremism
+      <br />
+      <input type="checkbox" class="options" name="html" value="html"/> Call of harassment
+      <br />
+      <input type="checkbox" class="options" name="html" value="html"/> A call to suicide
+      <br />
+      <input type="checkbox" class="options" name="html" value="html"/> Clickbait
+      <br />
+      <input type="checkbox" class="options" name="html" value="html"/> Non-original content
+      <br />
+      </form>
+  </div>
+  <div class="modal-footer">
+    <h4 class="footer-text">© Pinterest 2023</h4>
+    <p><input class="button-send" type="submit" value="Send Report"></p>
+  </div>
+</div>
+</div>
     <div class="fluid-container">
       <header class="pntr-header">
         <div class="heder-flex">
