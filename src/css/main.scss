@@ -61,7 +61,6 @@
   justify-content: space-between;
   display: none; 
   border-radius: 20px;
-  height: 29px;
   margin-bottom: 10px;
 }
 .add{
@@ -75,7 +74,8 @@
   margin-top: 10px;
   margin: 0 auto;
   background-color: rgba(239, 239, 239);
-  height: 27px;
+  font-size: small;
+  align-items: center;
 }
 .report{
   font-weight: 400;
@@ -87,7 +87,8 @@
   border-radius: 9px;
   margin: 0 auto;
   background-color: rgba(239, 239, 239);
-  height: 27px;
+  font-size: small;
+  align-items: center;
 }
 
 .cross{
@@ -100,22 +101,9 @@
   border-radius: 7px;
   margin: 0 auto;
   background-color: rgba(239, 239, 239);
-  font-size: 14px;
-  height: 30px;
+  font-size: small;
   align-items: center;
-  height: 27px;
-}
-@media(max-width: 1525px){
-  .cross{
-    font-size: 13px;
-    height: 22px;
-  }
-}
-@media(max-width: 1150px){
-  .cross{
-    font-size: 12px;
-    height: 20px;
-  }
+  align-items: center;
 }
 .add:hover{
   background-color: #198754;
@@ -129,8 +117,6 @@
   background-color: #BD081C;
   color: white;
 }
-
-
 .hover-el {
 	display: none;
 	position: relative;
