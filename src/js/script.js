@@ -103,10 +103,12 @@ function createHoverEl(description, avatar, id, userName) {
 
   closeContainer.addEventListener("click", function () {
     container.style.display = "none";
+    hoverButton.style.display = 'flex';
   })
 
   hoverButton.addEventListener("click", function () {
     container.style.display = "flex";
+    hoverButton.style.display = 'none';
   })
   
 // Получить модальный
