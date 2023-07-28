@@ -128,7 +128,20 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
-
+let send = document.getElementById("button-send");
+send.addEventListener("click", function () {
+  setTimeout(function(){
+    modal.style.display = "none";
+  }, 1000);
+  document.getElementById('loader').style.display = 'flex';
+  setTimeout(function(){
+    document.getElementById('loader').style.display = 'none';
+  }, 1000);
+  document.getElementById('text').style.display = 'flex';
+  setTimeout(function(){
+    document.getElementById('text').style.display = 'none';
+  }, 1000);
+})
   let userAvatar = document.createElement("img");
   userAvatar.setAttribute("src", avatar);
   userInfo.append(userAvatar);
@@ -142,7 +155,6 @@ window.onclick = function(event) {
   container.append(closeContainer);
   return hoverEl;
 }
-
 function createAddToDeskWin(id) {
   const winEl = document.createElement('div');
   winEl.setAttribute('class', 'add-to-desk-win');
