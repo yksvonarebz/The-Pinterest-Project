@@ -61,6 +61,11 @@
   line-height: 0;
   font-size: 44px;
   display: flex;
+  transition: 0.4s;
+  &:hover {
+    color: crimson;
+    transition: 0.7s;
+  }
 }
 
 .containerWithAddBoards {
@@ -73,9 +78,9 @@
 .add {
   display: flex;
   font-weight: 400;
-  font-family: "Blinker", sans-serif;
-  color: #198754;
-  border-color: #198754;
+  font-family: 'Blinker', sans-serif;
+  color: crimson;
+  border-color: crimson;
   border-radius: 9px;
   border: 0px;
   margin-top: 10px;
@@ -123,14 +128,15 @@
   font-weight: 400;
   font-family: "Blinker", sans-serif;
   display: flex;
-  color: #198754;
-  border-color: #198754;
+  color: crimson;
+  border-color: crimson;
   border: 0px;
   border-radius: 9px;
   margin: 0 auto;
   background-color: rgba(239, 239, 239);
   font-size: small;
   align-items: center;
+  transition: 0.4s;
 }
 @media (max-width: 1150px) {
   .report {
@@ -171,8 +177,8 @@
   font-weight: 400;
   font-family: "Blinker", sans-serif;
   display: flex;
-  color: #198754;
-  border-color: #198754;
+  color: crimson;
+  border-color: crimson;
   border: 0px;
   border-radius: 7px;
   margin: 0 auto;
@@ -180,6 +186,7 @@
   font-size: small;
   align-items: center;
   align-items: center;
+  transition: 0.4s;
 }
 @media (max-width: 413px) {
   .cross {
@@ -188,18 +195,20 @@
 }
 
 .add:hover {
-  background-color: #198754;
+  background-color: crimson;
   color: white;
 }
 
 .report:hover {
-  background-color: #198754;
+  background-color: crimson;
   color: white;
+  transition: 0.7s;
 }
 
 .cross:hover {
   background-color: #bd081c;
   color: white;
+  transition: 0.7s;
 }
 
 .hover-el {
@@ -211,6 +220,7 @@
   flex-direction: column;
   padding-inline: 3%;
   padding-bottom: 2%;
+  animation: rolling-desc 1.2s cubic-bezier(0.68,-0.55,0.265,1.55) 1 reverse 0s forwards;
 }
 
 .hover-el__user-nfo {
@@ -292,8 +302,8 @@
 }
 .button-send {
   display: flex;
-  color: #198754;
-  border-color: #198754;
+  color: crimson;
+  border-color:crimson;
   border-radius: 9px;
   border: 0px;
   margin-top: 10px;
@@ -302,8 +312,8 @@
   font-size: 15px;
   height: 30px;
 }
-.button-send:hover {
-  background-color: #198754;
+.button-send:hover{
+  background-color: crimson;
   color: white;
 }
 .options {
@@ -337,8 +347,8 @@
   width: 65% !important;
 
   &:hover {
-    background-color: #198754 !important;
-    border-color: #198754 !important;
+    background-color: crimson !important;
+    border-color: crimson !important;
     color: white !important;
   }
 }
@@ -356,5 +366,14 @@
     background-repeat: no-repeat;
     background-position: left;
     background-size: 100%;
+  }
+}
+
+@keyframes rolling-desc {
+  0% {
+   top: 0;
+  }
+  100% {
+    top: 70px;
   }
 }
