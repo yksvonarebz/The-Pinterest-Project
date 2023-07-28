@@ -146,6 +146,8 @@ function createHoverEl(description, avatar, id, userName) {
 }
 
 function createAddToDeskWin(id) {
+  let el = document.getElementById(`win-el-${id}`)
+  if (!el) {
   const winEl = document.createElement("div");
   winEl.setAttribute("class", "add-to-desk-win");
   winEl.setAttribute("id", `win-el-${id}`);
@@ -174,8 +176,11 @@ function createAddToDeskWin(id) {
   });
   winEl.append(thirdDesk);
 
-  let parent = document.getElementById(id);
-  parent.append(winEl);
+    let parent = document.getElementById(id);
+    parent.append(winEl);
+  } else {
+    el.style.display = 'flex';
+  }
 }
 
 function openDeskWin(desk_name, gridName) {
