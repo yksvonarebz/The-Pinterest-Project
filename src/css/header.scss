@@ -10,12 +10,17 @@
   background-color: white;
 }
 
+
+
 .heder-flex {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
   height: 100%;
+  .logo-box {
+    cursor: pointer;
+  }
 }
 
 .search-box {
@@ -29,8 +34,10 @@
   height: 100%;
   border-radius: 20px;
   background-color: $main-gray;
+  transition: 0.4s;
   &:hover {
     background-color: $hover-gray;
+    transition: 0.7s;
   }
 }
 
@@ -41,7 +48,9 @@
   outline: none;
   border-radius: 20px;
   background-color: $main-gray;
+  transition: 0.4s;
   &:hover {
     background-color: $hover-gray;
+    transition: 0.7s;
   }
 }
