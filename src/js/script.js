@@ -108,26 +108,26 @@ function createHoverEl(description, avatar, id, userName) {
   hoverButton.addEventListener("click", function () {
     container.style.display = "flex";
   })
-  
-// Получить модальный
-let modal = document.getElementById("myModal");
-// Получить элемент <span>, который закрывает модальный
-let span = document.getElementsByClassName("close")[0];
-// Когда пользователь нажимает на кнопку, откройте модальный
-buttonReport.onclick = function() {
-  console.log("test")
-  modal.style.display = "block";
-}
-// Когда пользователь нажимает на <span> (x), закройте модальное окно
-span.onclick = function() {
-  modal.style.display = "none";
-}
-// Когда пользователь щелкает в любом месте за пределами модального, закройте его
-window.onclick = function(event) {
-  if (event.target == modal) {
+
+  // Получить модальный
+  let modal = document.getElementById("myModal");
+  // Получить элемент <span>, который закрывает модальный
+  let span = document.getElementsByClassName("close")[0];
+  // Когда пользователь нажимает на кнопку, откройте модальный
+  buttonReport.onclick = function () {
+    console.log("test")
+    modal.style.display = "block";
+  }
+  // Когда пользователь нажимает на <span> (x), закройте модальное окно
+  span.onclick = function () {
     modal.style.display = "none";
   }
-}
+  // Когда пользователь щелкает в любом месте за пределами модального, закройте его
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
 
   let userAvatar = document.createElement("img");
   userAvatar.setAttribute("src", avatar);
@@ -144,36 +144,41 @@ window.onclick = function(event) {
 }
 
 function createAddToDeskWin(id) {
-  const winEl = document.createElement('div');
-  winEl.setAttribute('class', 'add-to-desk-win');
-  winEl.setAttribute('id', `win-el-${id}`);
+  let el = document.getElementById(`win-el-${id}`)
+  if (!el) {
+    const winEl = document.createElement('div');
+    winEl.setAttribute('class', 'add-to-desk-win');
+    winEl.setAttribute('id', `win-el-${id}`);
 
-  const firstDesk = document.createElement("button");
-  firstDesk.setAttribute('class', 'btn btn-light btn-cstm');
-  firstDesk.innerText = "Projects"
-  firstDesk.addEventListener('click', () => {
-    addToDesk(id, "desk_one");
-  });
-  winEl.append(firstDesk);
+    const firstDesk = document.createElement("button");
+    firstDesk.setAttribute('class', 'btn btn-light btn-cstm');
+    firstDesk.innerText = "Projects"
+    firstDesk.addEventListener('click', () => {
+      addToDesk(id, "desk_one");
+    });
+    winEl.append(firstDesk);
 
-  const secondDesk = document.createElement("button");
-  secondDesk.setAttribute('class', 'btn btn-light btn-cstm');
-  secondDesk.innerText = "Artwork";
-  secondDesk.addEventListener('click', () => {
-    addToDesk(id, "desk_two");
-  });
-  winEl.append(secondDesk);
+    const secondDesk = document.createElement("button");
+    secondDesk.setAttribute('class', 'btn btn-light btn-cstm');
+    secondDesk.innerText = "Artwork";
+    secondDesk.addEventListener('click', () => {
+      addToDesk(id, "desk_two");
+    });
+    winEl.append(secondDesk);
 
-  const thirdDesk = document.createElement("button");
-  thirdDesk.setAttribute('class', 'btn btn-light btn-cstm');
-  thirdDesk.innerText = "Personal stuff";
-  thirdDesk.addEventListener('click', () => {
-    addToDesk(id, "desk_three");
-  });
-  winEl.append(thirdDesk);
+    const thirdDesk = document.createElement("button");
+    thirdDesk.setAttribute('class', 'btn btn-light btn-cstm');
+    thirdDesk.innerText = "Personal stuff";
+    thirdDesk.addEventListener('click', () => {
+      addToDesk(id, "desk_three");
+    });
+    winEl.append(thirdDesk);
 
-  let parent = document.getElementById(id);
-  parent.append(winEl);
+    let parent = document.getElementById(id);
+    parent.append(winEl);
+  } else {
+    el.style.display = 'flex';
+  }
 }
 
 
@@ -189,47 +194,47 @@ function openDeskWin(desk_name, gridName) {
 }
 
 function addToDesk(id, deskName) {
-    let el = document.querySelector(`#${id}`);
-    let newArr = JSON.parse(localStorage[deskName]);
-    let obj = {
-        image: el.style["background-image"].split('("')[1].split('")')[0],
-        avatar: el.attributes["avatar"].value,
-        description: el.attributes["description"].value,
-        hashtag: el.attributes["hashtag"].value,
-        userName: el.attributes["userName"].value
-    };
+  let el = document.querySelector(`#${id}`);
+  let newArr = JSON.parse(localStorage[deskName]);
+  let obj = {
+    image: el.style["background-image"].split('("')[1].split('")')[0],
+    avatar: el.attributes["avatar"].value,
+    description: el.attributes["description"].value,
+    hashtag: el.attributes["hashtag"].value,
+    userName: el.attributes["userName"].value
+  };
 
-    newArr.push(obj);
-    localStorage[deskName] = JSON.stringify(newArr);
+  newArr.push(obj);
+  localStorage[deskName] = JSON.stringify(newArr);
 
-    document.getElementById(`win-el-${id}`).style.display = 'none';
+  document.getElementById(`win-el-${id}`).style.display = 'none';
 
-    const hovEl = el.getElementsByClassName('hover-el')[0];
-    const usrInf = hovEl.getElementsByClassName('hover-el__user-nfo')[0];
-    const cntnr = hovEl.getElementsByClassName('containerWithAddBoards')[0];
+  const hovEl = el.getElementsByClassName('hover-el')[0];
+  const usrInf = hovEl.getElementsByClassName('hover-el__user-nfo')[0];
+  const cntnr = hovEl.getElementsByClassName('containerWithAddBoards')[0];
 
-    hovEl.style.color = 'white';
-    usrInf.style.display = 'block';
-    cntnr.style.display = 'flex';
+  hovEl.style.color = 'white';
+  usrInf.style.display = 'block';
+  cntnr.style.display = 'flex';
 
-    Toastify({
-        text: "Card added to the desk",
-        duration: 3000,
-        newWindow: true,
-        close: true,
-        gravity: "bottom",
-        position: "left",
-        stopOnFocus: true,
-        style: {
-            animation: '3.5s progress linear',
-            background: 'white',
-            position: 'fixed',
-            'z-index': '1',
-            bottom: '0px',
-            right: '0px',
-            width: '20%'
-        }
-    }).showToast();
+  Toastify({
+    text: "Card added to the desk",
+    duration: 3000,
+    newWindow: true,
+    close: true,
+    gravity: "bottom",
+    position: "left",
+    stopOnFocus: true,
+    style: {
+      animation: '3.5s progress linear',
+      background: 'white',
+      position: 'fixed',
+      'z-index': '1',
+      bottom: '0px',
+      right: '0px',
+      width: '20%'
+    }
+  }).showToast();
 }
 
 function creatNode(position, url) {
