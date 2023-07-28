@@ -123,14 +123,27 @@ function createHoverEl(description, avatar, id, userName) {
   // Когда пользователь нажимает на <span> (x), закройте модальное окно
   span.onclick = function () {
     modal.style.display = "none";
-  };
-  // Когда пользователь щелкает в любом месте за пределами модального, закройте его
+  }
+// Когда пользователь щелкает в любом месте за пределами модального, закройте его
   window.onclick = function (event) {
     if (event.target == modal) {
       modal.style.display = "none";
     }
-  };
-
+  }
+let send = document.getElementById("button-send");
+send.addEventListener("click", function () {
+  setTimeout(function(){
+    modal.style.display = "none";
+  }, 1000);
+  document.getElementById('loader').style.display = 'flex';
+  setTimeout(function(){
+    document.getElementById('loader').style.display = 'none';
+  }, 1000);
+  document.getElementById('text').style.display = 'flex';
+  setTimeout(function(){
+    document.getElementById('text').style.display = 'none';
+  }, 1000);
+})
   let userAvatar = document.createElement("img");
   userAvatar.setAttribute("src", avatar);
   userInfo.append(userAvatar);
@@ -144,7 +157,6 @@ function createHoverEl(description, avatar, id, userName) {
   container.append(closeContainer);
   return hoverEl;
 }
-
 function createAddToDeskWin(id) {
   let el = document.getElementById(`win-el-${id}`)
   if (!el) {
