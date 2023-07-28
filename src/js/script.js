@@ -13,22 +13,22 @@ if (!localStorage['desk_one']) {
 document.getElementsByClassName('logo-box')[0].addEventListener('click', () => {
   document.querySelectorAll(".desk-masonry-grid").forEach(el => el.style.display = 'none');
   document.getElementById('my-masonry-grid').style.display = 'flex';
-  document.getElementById('toggle-button').innerText = 'Desks';
+  document.getElementById('toggle-button').innerText = 'Pins';
 })
 
 document.getElementById('dropdown-item-1').addEventListener('click', () => {
   openDeskWin('desk_one', 'desk-masonry-grid-first');
-  document.getElementById('toggle-button').innerText = 'First desk';
+  document.getElementById('toggle-button').innerText = 'Projects';
 });
 
 document.getElementById('dropdown-item-2').addEventListener('click', () => {
   openDeskWin('desk_two', 'desk-masonry-grid-second');
-  document.getElementById('toggle-button').innerText = 'Second desk';
+  document.getElementById('toggle-button').innerText = 'Artwork';
 });
 
 document.getElementById('dropdown-item-3').addEventListener('click', () => {
   openDeskWin('desk_three', 'desk-masonry-grid-third');
-  document.getElementById('toggle-button').innerText = 'Third desk';
+  document.getElementById('toggle-button').innerText = 'Personal stuff';
 });
 
 
@@ -150,7 +150,7 @@ function createAddToDeskWin(id) {
 
   const firstDesk = document.createElement("button");
   firstDesk.setAttribute('class', 'btn btn-light btn-cstm');
-  firstDesk.innerText = "First desk"
+  firstDesk.innerText = "Projects"
   firstDesk.addEventListener('click', () => {
     addToDesk(id, "desk_one");
   });
@@ -158,7 +158,7 @@ function createAddToDeskWin(id) {
 
   const secondDesk = document.createElement("button");
   secondDesk.setAttribute('class', 'btn btn-light btn-cstm');
-  secondDesk.innerText = "Second desk";
+  secondDesk.innerText = "Artwork";
   secondDesk.addEventListener('click', () => {
     addToDesk(id, "desk_two");
   });
@@ -166,7 +166,7 @@ function createAddToDeskWin(id) {
 
   const thirdDesk = document.createElement("button");
   thirdDesk.setAttribute('class', 'btn btn-light btn-cstm');
-  thirdDesk.innerText = "Third desk";
+  thirdDesk.innerText = "Personal stuff";
   thirdDesk.addEventListener('click', () => {
     addToDesk(id, "desk_three");
   });
